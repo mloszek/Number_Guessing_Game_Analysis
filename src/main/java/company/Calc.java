@@ -1,4 +1,6 @@
-package company.Calculations;
+package company;
+
+import java.io.*;
 
 import static com.sun.org.apache.xalan.internal.lib.ExsltStrings.split;
 
@@ -6,12 +8,28 @@ import static com.sun.org.apache.xalan.internal.lib.ExsltStrings.split;
  * Created by milosz on 6/16/17.
  */
 public class Calc {
-    public static void main (String [] args){
+
+    public void setLength ( int length){
+        this.length = length;
+    }
+
+    int length;
+    public Calc() {
+
+    }
+    public void Calculate(File file) throws IOException {
+
+        FileInputStream fileInputStream = null;
 
 
         /**the purpose of this class is to calculate average and standard deviation of guessing results, but
         it pretty much calculates them from any string of numbers with space in between*/
-        String data = "1 2 3 ";
+//        String data = "1 2 3 ";
+
+        fileInputStream = new FileInputStream(file);
+        BufferedReader buffRd = new BufferedReader(new InputStreamReader(fileInputStream));
+
+        String data = buffRd.readLine();
 
         String [] singleNumbersChars = data.split(" ");
         int [] singleNumbers = new int[singleNumbersChars.length];

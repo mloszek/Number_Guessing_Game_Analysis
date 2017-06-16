@@ -12,11 +12,12 @@ public class ResultsWriter {
 
     public ResultsWriter(List list, String description) throws IOException {
 
-        fileOutStr = new FileOutputStream("results.txt", true);
+        fileOutStr = new FileOutputStream("newResults.txt");
         BufferedWriter buffWr = new BufferedWriter(new OutputStreamWriter(fileOutStr, "UTF-8"));
 
-        buffWr.write(description);
-        buffWr.newLine();
+        /* allows to add lines to existing file*/
+//        buffWr.write(description);
+//        buffWr.newLine();
 
         for (int i = 0; i < list.size(); i++) {
 
@@ -25,7 +26,7 @@ public class ResultsWriter {
             buffWr.write(' ');
 
         }
-        buffWr.newLine();
+//        buffWr.newLine();
         buffWr.close();
 
     }

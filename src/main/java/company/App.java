@@ -1,5 +1,6 @@
 package company;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,14 +18,17 @@ public class App
 //            CPUGuessMedian round = new CPUGuessMedian();
 //            CPURandomGuess round = new CPURandomGuess();
 //            UserGuess round = new UserGuess();
-//            CPUGuessIncrementally round = new CPUGuessIncrementally();
-//            results.add(round.getNumberOfTries());
+            CPUGuessIncrementally round = new CPUGuessIncrementally();
+            results.add(round.getNumberOfTries());
             i++;
         }
 
-      ResultsWriter resultsWriter = new ResultsWriter(results, "Case 10: :");
+        ResultsWriter resultsWriter = new ResultsWriter(results, "Case 10: :");
 
 
+        File file = new File("newResults.txt");
+        Calc calc = new Calc();
+        calc.Calculate(file);
 
     }
 }
